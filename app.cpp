@@ -1,16 +1,18 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include "termomon.h"
 
-using namespace std;
 
-int main() {
+int main(int argc, char *argv[]) {
 
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
+    TypeHelper t_helper;
 
-    for (const string& word: msg) {
+    Type test1 = Type::drip;
+    Type test2 = Type::heat;
 
-        cout << word << " ";
-    }
-    cout << '\n';
+    std::string result = t_helper.printTypeBattle(test1, test2);
+
+    std::cout << result << '\n';
+
+    return 0;
 }

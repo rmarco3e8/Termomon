@@ -18,7 +18,7 @@
     1 if very effective
 */
 
-int TypeHelper::type_vs(Type type1, Type type2) {
+int TypeHelper::typeBattle(Type &type1, Type &type2) {
 
     if (checkNotEffective(type1, type2)) {
         return -1;
@@ -37,15 +37,15 @@ bool TypeHelper::checkNotEffective(Type &type1, Type &type2) {
         return true;
     }
     
-    else if (type1 == heat && type2 == drip) {
+    else if (type1 == Type::heat && type2 == Type::drip) {
         return true;
     }
 
-    else if (type1 == drip && type2 == plant) {
+    else if (type1 == Type::drip && type2 == Type::plant) {
         return true;
     }
 
-    else if (type1 == plant && type2 == heat) {
+    else if (type1 == Type::plant && type2 == Type::heat) {
         return true;
     }
 
@@ -58,17 +58,35 @@ bool TypeHelper::checkVeryEffective(Type &type1, Type &type2) {
         return true;
     }
     
-    else if (type1 == drip && type2 == heat) {
+    else if (type1 == Type::drip && type2 == Type::heat) {
         return true;
     }
 
-    else if (type1 == plant && type2 == drip) {
+    else if (type1 == Type::plant && type2 == Type::drip) {
         return true;
     }
 
-    else if (type1 == heat && type2 == plant) {
+    else if (type1 == Type::heat && type2 == Type::plant) {
         return true;
     }
 
     return false;
+}
+
+std::string TypeHelper::printType(Type type) {
+
+    return typeLookup.at(type);
+}
+
+std::string TypeHelper::printResult(int res) {
+    return battleLookup.at(res);
+}
+
+std::string TypeHelper::printTypeBattle(Type &type1, Type &type2) {
+
+    std::string result = printResult(typeBattle(type1, type2));
+    std::string t1_string = printType(type1);
+    std::string t2_string = printType(type2);
+
+    return t1_string + "is " + result + "against " + t2_string + ".";
 }

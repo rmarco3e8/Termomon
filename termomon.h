@@ -11,36 +11,30 @@ class Termomon {
 
 public:
 
-// Constructor
-Termomon();
+    // Constructor
+    Termomon();
 
-// Destructor
-~Termomon();
+    // Destructor
+    ~Termomon();
 
-/*
-Termomon takes damage
-*/
-void Termomon::takeDamage(int dmg);
+    /*
+    Termomon takes damage
+    */
+    void Termomon::takeDamage(int dmg);
 
-void Termomon::die();
+    void Termomon::die();
 
-int Termomon::getHealth();
+    int Termomon::getHealth();
 
-int Termomon::setHealth(int newHealth);
-
-
-
-
+    int Termomon::setHealth(int newHealth);
 
 
 private:
 
-int maxhealth;
-int health;
-bool alive;
-Type type;
-
-
+    int maxhealth;
+    int health;
+    bool alive;
+    Type type;
 };
 
 #endif
