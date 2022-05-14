@@ -15,17 +15,17 @@ enum class Type
 class TypeHelper {
 public:
 
-    int TypeHelper::typeBattle(Type &type1, Type &type2);
+    int typeBattle(Type &type1, Type &type2);
 
-    bool TypeHelper::checkNotEffective(Type &type1, Type &type2);
+    bool checkNotEffective(Type &type1, Type &type2);
 
-    bool TypeHelper::checkVeryEffective(Type &type1, Type &type2);
+    bool checkVeryEffective(Type &type1, Type &type2);
 
-    std::string TypeHelper::printTypeBattle(Type &type1, Type &type2);
+    std::string printTypeBattle(Type &type1, Type &type2);
 
-    std::string TypeHelper::printType(Type type);
+    std::string printType(Type type);
 
-    std::string TypeHelper::printResult(int res);
+    std::string printResult(int res);
 
 private:
 

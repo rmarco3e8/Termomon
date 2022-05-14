@@ -88,5 +88,5 @@ std::string TypeHelper::printTypeBattle(Type &type1, Type &type2) {
     std::string t1_string = printType(type1);
     std::string t2_string = printType(type2);
 
-    return t1_string + "is " + result + "against " + t2_string + ".";
+    return t1_string + " is " + result + " against " + t2_string + ".";
 }

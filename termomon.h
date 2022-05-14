@@ -9,6 +9,7 @@
 
 class Termomon {
 
+
 public:
 
     // Constructor
@@ -20,13 +21,13 @@ public:
     /*
     Termomon takes damage
     */
-    void Termomon::takeDamage(int dmg);
+    void takeDamage(int dmg);
 
-    void Termomon::die();
+    void die();
 
-    int Termomon::getHealth();
+    int getHealth();
 
-    int Termomon::setHealth(int newHealth);
+    int setHealth(int newHealth);
 
 
 private:
@@ -35,6 +36,8 @@ private:
     int health;
     bool alive;
     Type type;
+
+
 };
 
 #endif
