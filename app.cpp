@@ -13,48 +13,21 @@
 
 int main(int argc, char *argv[]) {
 
-    /*
-
-    TypeHelper t_helper;
-
-    Type test1 = Type::drip;
-    Type test2 = Type::heat;
-
-    std::string result = t_helper.printTypeBattle(test1, test2);
-
-    std::cout << result << '\n';
-
-    */
-
-    std::fstream mapFile;
-    mapFile.open("maps/sandbox.txt");
-    
-    std::string word;
-    int width;
-    int height;
-
-    mapFile >> word;
-    width = std::stoi(word);
-    mapFile >> word;
-    height = std::stoi(word);
-
-    int x = 0;
-    int y = 0;
+    std::string mapName = argv[0];
+    std::cout << mapName << 'n';
 
     initscr();
     cbreak();
     noecho();
-
-    while (mapFile >> word) {
-
-        printw("%c", word[0]);
-    }
+    keypad(stdscr, TRUE);
 
     move(2,3);
 
-    char c = getch();
+    int c = getch();
 
-    printw("%c", c);
+    if (c == KEY_UP) {
+        printw("up");
+    }
 
     refresh();
 
