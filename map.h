@@ -23,6 +23,10 @@ public:
 
     void printMessage(std::string message);
 
+    void clearMap();
+
+    bool encounterTile();
+
 
 private:
 

@@ -132,3 +132,18 @@ void Map::printMessage(std::string message) {
         textbox.push_back(temp);
     }
 }
+
+void Map::clearMap() {
+    for (int row = 0; row < h; ++row) {
+        for (int col = 0; col < w; ++col) {
+            mvaddch(row, col*2, ' ');
+        }
+    }
+}
+
+bool Map::encounterTile() {
+    if (underPlayer == '*') {
+        return true;
+    }
+    return false;
+}
