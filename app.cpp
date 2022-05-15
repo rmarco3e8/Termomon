@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
         c = getch();
         map.move(c);
         refresh();
+        map.draw();
     }
 
     endwin();

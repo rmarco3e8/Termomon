@@ -30,7 +30,8 @@ void Map::readMapFile() {
             map[row][col] = word[0];
 
             if (word[0] == 'x') {
-                py, px = row, col;
+                py = row;
+                px = col;
                 map[row][col] = 'o';
                 underPlayer = '.';
             }
@@ -44,7 +45,7 @@ void Map::move(int c) {
     switch(c) {
     
     case KEY_UP:
-        if (py != 0) {
+        if (py != 0 && map[py-1][px] != '#') {
             map[py][px] = underPlayer;
             py--;
             underPlayer = map[py][px];
@@ -53,7 +54,7 @@ void Map::move(int c) {
     break;
 
     case KEY_DOWN:
-        if (py != (h-1)) {
+        if (py != (h-1) && map[py+1][px] != '#') {
             map[py][px] = underPlayer;
             py++;
             underPlayer = map[py][px];
@@ -62,7 +63,7 @@ void Map::move(int c) {
     break;
 
     case KEY_LEFT:
-        if (px != 0) {
+        if (px != 0 && map[py][px-1] != '#') {
             map[py][px] = underPlayer;
             px--;
             underPlayer = map[py][px];
@@ -71,7 +72,7 @@ void Map::move(int c) {
     break;
 
     case KEY_RIGHT:
-        if (px != (w-1)) {
+        if (px != (w-1) && map[py][px+1] != '#') {
             map[py][px] = underPlayer;
             px++;
             underPlayer = map[py][px];
