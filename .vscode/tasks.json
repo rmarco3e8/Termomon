@@ -10,7 +10,8 @@
 				"-g",
 				"${workspaceFolder}/*.cpp",
 				"-o",
-				"Termomon"
+				"Termomon",
+				"-lncurses"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
