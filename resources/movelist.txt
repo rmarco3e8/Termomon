@@ -1,0 +1,13 @@
+Water|Spit Drip|5
+Aqua Ball|Drip|10
+Pressure Jet|Drip|20
+Tsunami|Drip|40
+Fire Spit|Heat|5
+Flame Ball|Heat|10
+Scorching Breath|Heat|20
+Eruption|Heat|40
+Twig Throw|Plant|5
+Branch Slap|Plant|10
+Vine Strangle|Plant|20
+Root Coffin|Plant|40
+

@@ -15,7 +15,7 @@ public:
 
 private:
 
-    //vector<Teromon> team;
+    //vector<Termomon> team;
     int terobux;
 };
 
