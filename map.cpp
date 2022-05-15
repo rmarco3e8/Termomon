@@ -1,9 +1,9 @@
 #include "map.h"
 
 
-Map::Map(std::string mapName) {
+Map::Map(std::string mName) {
 
-    this->mapName = mapName;
+    mapName = mName;
 
     readMapFile();
 }

@@ -10,19 +10,13 @@
 class Player {
 public:
 
-    Player(Map &map_in);
-
-    void input(int c);
-
-    bool isMovementKey(int c);
+    Player();
 
 
 private:
 
     //vector<Teromon> team;
     int terobux;
-    Map * current_map;
-
 };
 
 #endif
