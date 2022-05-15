@@ -3,8 +3,8 @@
 
 #include <fstream>
 #include <string>
-#include <unordered_map>
 #include <vector>
+#include <ncurses.h>
 
 
 class Map {
@@ -17,6 +17,9 @@ public:
     void move(int c);
 
     void draw();
+
+    bool isMovementKey(int c);
+
 
 private:
 

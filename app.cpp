@@ -2,8 +2,8 @@
 #include <fstream>
 #include <string>
 #include "termomon.h"
-#include <ncurses.h>
 #include "map.h"
+#include "player.h"
 
 /*
 #define GRASS   '*'
@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
 
     std::string mapName = argv[1];
     Map map = Map(mapName);
+    Player player = Player(map);
 
     initscr();
     cbreak();
@@ -28,9 +29,8 @@ int main(int argc, char *argv[]) {
 
     while(true) {
         c = getch();
-        map.move(c);
-        refresh();
-        map.draw();
+        player.input(c);
+        //refresh();
     }
 
     endwin();

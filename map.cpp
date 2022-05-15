@@ -1,7 +1,5 @@
 #include "map.h"
-#include <fstream>
-#include <ncurses.h>
-#include <iostream>
+
 
 Map::Map(std::string mapName) {
 
@@ -80,6 +78,8 @@ void Map::move(int c) {
         }
     break;
     }
+
+    draw();
 }
 
 void Map::draw() {
