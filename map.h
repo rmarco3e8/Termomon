@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <ncurses.h>
+#include <deque>
 
 
 class Map {
@@ -20,6 +21,8 @@ public:
 
     bool isMovementKey(int c);
 
+    void printMessage(std::string message);
+
 
 private:
 
@@ -29,6 +32,8 @@ private:
     int py, px; // (row, col), (y, x)
     std::vector<std::vector<char>> map;
     char underPlayer;
+    std::deque<std::string> textbox;
+    int textboxLength = 6;
 };
 
 #endif

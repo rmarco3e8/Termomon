@@ -23,3 +23,7 @@ void Game::input(int c) {
 void Game::draw() {
     current_map.draw();
 }
+
+void Game::printMessage(std::string message) {
+    current_map.printMessage(message);
+}

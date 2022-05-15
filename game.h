@@ -17,6 +17,8 @@ public:
 
     void draw();
 
+    void printMessage(std::string message);
+
 
 private:
 
