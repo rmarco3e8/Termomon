@@ -1,5 +1,7 @@
 #include "map.h"
 #include <fstream>
+#include <ncurses.h>
+#include <iostream>
 
 Map::Map(std::string mapName) {
 
@@ -37,11 +39,11 @@ void Map::readMapFile() {
 
 }
 
-void Map::move(char c) {
+void Map::move(int c) {
 
     switch(c) {
     
-    case 'u':
+    case KEY_UP:
         if (py != 0) {
             map[py][px] = underPlayer;
             py--;
@@ -50,7 +52,7 @@ void Map::move(char c) {
         }
     break;
 
-    case 'd':
+    case KEY_DOWN:
         if (py != (h-1)) {
             map[py][px] = underPlayer;
             py++;
@@ -59,7 +61,7 @@ void Map::move(char c) {
         }
     break;
 
-    case 'l':
+    case KEY_LEFT:
         if (px != 0) {
             map[py][px] = underPlayer;
             px--;
@@ -68,7 +70,7 @@ void Map::move(char c) {
         }
     break;
 
-    case 'r':
+    case KEY_RIGHT:
         if (px != (w-1)) {
             map[py][px] = underPlayer;
             px++;
@@ -76,5 +78,14 @@ void Map::move(char c) {
             map[py][px] = 'o';
         }
     break;
+    }
+}
+
+void Map::draw() {
+
+    for (int row = 0; row < h; ++row) {
+        for (int col = 0; col < w; ++col) {
+            mvaddch(row, col, map[row][col]);
+        }
     }
 }

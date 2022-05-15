@@ -5,7 +5,6 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <tuple>
 
 
 class Map {
@@ -15,14 +14,16 @@ public:
 
     void readMapFile();
 
-    void move(char c);
+    void move(int c);
+
+    void draw();
 
 private:
 
     std::string mapName;
-    int height;
-    int width;
-    std::tuple<int,int> playerLocation;
+    int h;
+    int w;
+    int py, px; // (row, col), (y, x)
     std::vector<std::vector<char>> map;
     char underPlayer;
 };
