@@ -86,7 +86,7 @@ void Map::draw() {
 
     for (int row = 0; row < h; ++row) {
         for (int col = 0; col < w; ++col) {
-            mvaddch(row, col, map[row][col]);
+            mvaddch(row, col*2, map[row][col]);
         }
     }
 }
