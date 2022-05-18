@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
     while(true) {
         c = getch();
         game.input(c);
-        //refresh();
+        refresh();
     }
 
     endwin();

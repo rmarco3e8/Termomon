@@ -129,6 +129,9 @@ void Game::earth(int d) {
         while (!current_map.blockedUp(x, y)) {
             y--;
             current_map.placeMountain(x, y);
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+            draw();
+            refresh();
         }
     break;
 
@@ -139,6 +142,9 @@ void Game::earth(int d) {
         while (!current_map.blockedDown(x, y)) {
             y++;
             current_map.placeMountain(x, y);
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+            draw();
+            refresh();
         }
     break;
 
@@ -149,6 +155,9 @@ void Game::earth(int d) {
         while (!current_map.blockedLeft(x, y)) {
             x--;
             current_map.placeMountain(x, y);
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+            draw();
+            refresh();
         }
     break;
 
@@ -159,10 +168,12 @@ void Game::earth(int d) {
         while (!current_map.blockedRight(x, y)) {
             x++;
             current_map.placeMountain(x, y);
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+            draw();
+            refresh();
         }
     break;
     }
 
-    draw();
     printMessage(message);
 }

@@ -5,7 +5,8 @@
 #include "player.h"
 #include <string>
 #include <random>
-
+#include <chrono>
+#include <thread>
 
 class Game {
 public:
