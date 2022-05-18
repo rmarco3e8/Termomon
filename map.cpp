@@ -41,6 +41,34 @@ void Map::readMapFile() {
 
 }
 
+bool Map::blockedUp(int x, int y) {
+    if (map[y-1][x] == '#' || map[y-1][x] == '^') {
+        return true;
+    }
+    return false;
+}
+
+bool Map::blockedDown(int x, int y) {
+    if (map[y+1][x] == '#' || map[y+1][x] == '^') {
+        return true;
+    }
+    return false;
+}
+
+bool Map::blockedLeft(int x , int y) {
+    if (map[y][x-1] == '#' || map[y][x-1] == '^') {
+        return true;
+    }
+    return false;
+}
+
+bool Map::blockedRight(int x, int y) {
+    if (map[y][x+1] == '#' || map[y][x+1] == '^') {
+        return true;
+    }
+    return false;
+}
+
 void Map::move(int c) {
 
     std::string message = "";
@@ -146,4 +174,12 @@ bool Map::encounterTile() {
         return true;
     }
     return false;
+}
+
+int Map::getPlayerX() {
+    return px;
+}
+
+int Map::getPlayerY() {
+    return py;
 }

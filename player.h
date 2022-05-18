@@ -12,6 +12,8 @@ public:
 
     Player();
 
+    //void earth();
+
 
 private:
 

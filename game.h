@@ -16,6 +16,10 @@ public:
 
     bool isMovementKey(int c);
 
+    bool isActionKey(int c);
+
+    void useAction(int d);
+
     void draw();
 
     void printMessage(std::string message);
@@ -30,6 +34,8 @@ public:
 
     bool rollBattle();
 
+    void earth(int d);
+
 private:
 
     Map current_map;
@@ -37,6 +43,10 @@ private:
     bool inBattle;
     std::default_random_engine generator;
     std::uniform_int_distribution<int> distribution;
+    int lvl_earth;
+    bool awaitingAction;
+    bool awaitingDirection;
+    int queuedAction;
 };
 
 #endif

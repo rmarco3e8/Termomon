@@ -27,6 +27,17 @@ public:
 
     bool encounterTile();
 
+    int getPlayerX();
+
+    int getPlayerY();
+
+    bool blockedUp(int x, int y);
+    
+    bool blockedDown(int x, int y);
+
+    bool blockedLeft(int x , int y);
+
+    bool blockedRight(int x, int y);
 
 private:
 
