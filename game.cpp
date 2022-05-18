@@ -25,14 +25,20 @@ bool Game::isActionKey(int c) {
         queuedAction = 1;
         return true;
     }
+    else if (c == int('2')) {
+        queuedAction = 2;
+        return true;
+    }
     return false;
 }
 
 void Game::useAction(int d) {
     if (queuedAction == 1) {
-        earth(d);
+        earth_3(d);
     }
-
+    else if (queuedAction == 2) {
+        earth_1(d);
+    }
     queuedAction = 0;
 }
 
@@ -72,7 +78,8 @@ void Game::input(int c) {
     else if (c == int('q')) {
         awaitingAction = true;
         std::string message = "Choose an action.";
-        message += " Use earth: 1";
+        message += " Raise mountain: 1";
+        message += " Flatten mountain: 2";
         printMessage(message);
     }
     else {
@@ -113,12 +120,62 @@ bool Game::rollBattle() {
     return false;
 }
 
-void Game::earth(int d) {
+void Game::earth_1(int d) {
 
     int x = current_map.getPlayerX();
     int y = current_map.getPlayerY();
 
-    std::string message = "Used earthcrafting ";
+    std::string message = "Flattened mountains ";
+
+    switch(d) {
+    
+    case KEY_UP:
+
+        message += "towards the North.";
+
+        if (current_map.getCharAt(x, y-1) == '^') {
+            current_map.place(x, y-1, '.');
+        }
+    break;
+
+    case KEY_DOWN:
+
+        message += "towards the South.";
+
+        if (current_map.getCharAt(x, y+1) == '^') {
+            current_map.place(x, y+1, '.');
+        }
+    break;
+
+    case KEY_LEFT:
+
+        message += "towards the West.";
+
+        if (current_map.getCharAt(x-1, y) == '^') {
+            current_map.place(x-1, y, '.');
+        }
+    break;
+
+    case KEY_RIGHT:
+
+        message += "towards the East.";
+
+        if (current_map.getCharAt(x+1, y) == '^') {
+            current_map.place(x+1, y, '.');
+        }
+    break;
+    }
+    draw();
+    refresh();
+    printMessage(message);
+}
+
+void Game::earth_3(int d) {
+
+    int x = current_map.getPlayerX();
+    int y = current_map.getPlayerY();
+
+    std::string message = "Raised mountains ";
 
     switch(d) {
     
@@ -150,7 +207,7 @@ void Game::earth(int d) {
 
     case KEY_LEFT:
 
-        message += "towards the East.";
+        message += "towards the West.";
 
         while (!current_map.blockedLeft(x, y)) {
             x--;
@@ -163,7 +220,7 @@ void Game::earth(int d) {
 
     case KEY_RIGHT:
 
-        message += "towards the West.";
+        message += "towards the East.";
 
         while (!current_map.blockedRight(x, y)) {
             x++;

@@ -31,6 +31,8 @@ public:
 
     int getPlayerY();
 
+    int getCharAt(int x, int y);
+
     bool blockedUp(int x, int y);
     
     bool blockedDown(int x, int y);
@@ -40,6 +42,8 @@ public:
     bool blockedRight(int x, int y);
 
     void placeMountain(int x, int y);
+
+    void place(int x, int y, char c);
 
 private:
 

@@ -164,7 +164,7 @@ void Map::printMessage(std::string message) {
         return;
     }
 
-    message.resize(40, ' ');
+    message.resize(80, ' ');
 
     textbox.push_front(message);
     textbox.pop_back();
@@ -198,4 +198,12 @@ int Map::getPlayerX() {
 
 int Map::getPlayerY() {
     return py;
+}
+
+int Map::getCharAt(int x, int y) {
+    return map[y][x];
+}
+
+void Map::place(int x, int y, char c) {
+    map[y][x] = c;
 }

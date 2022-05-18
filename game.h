@@ -35,7 +35,9 @@ public:
 
     bool rollBattle();
 
-    void earth(int d);
+    void earth_3(int d);
+
+    void earth_1(int d);
 
 private:
 
