@@ -42,6 +42,9 @@ void Map::readMapFile() {
 }
 
 bool Map::blockedUp(int x, int y) {
+    if (y == 0) {
+        return true;
+    }
     if (map[y-1][x] == '#' || map[y-1][x] == '^') {
         return true;
     }
@@ -49,6 +52,9 @@ bool Map::blockedUp(int x, int y) {
 }
 
 bool Map::blockedDown(int x, int y) {
+    if (y == h-1) {
+        return true;
+    }
     if (map[y+1][x] == '#' || map[y+1][x] == '^') {
         return true;
     }
@@ -56,6 +62,9 @@ bool Map::blockedDown(int x, int y) {
 }
 
 bool Map::blockedLeft(int x , int y) {
+    if (x == 0) {
+        return true;
+    }
     if (map[y][x-1] == '#' || map[y][x-1] == '^') {
         return true;
     }
@@ -63,10 +72,17 @@ bool Map::blockedLeft(int x , int y) {
 }
 
 bool Map::blockedRight(int x, int y) {
+    if (x == w-1) {
+        return true;
+    }
     if (map[y][x+1] == '#' || map[y][x+1] == '^') {
         return true;
     }
     return false;
+}
+
+void Map::placeMountain(int x, int y) {
+    map[y][x] = '^';
 }
 
 void Map::move(int c) {
@@ -77,7 +93,7 @@ void Map::move(int c) {
     
     case KEY_UP:
 
-        if (map[py-1][px] == '#') {
+        if (map[py-1][px] == '#' || map[py-1][px] == '^') {
             message = "BONK!";
             break;
         }
@@ -90,7 +106,7 @@ void Map::move(int c) {
     break;
 
     case KEY_DOWN:
-        if (map[py+1][px] == '#') {
+        if (map[py+1][px] == '#' || map[py+1][px] == '^') {
             message = "BONK!";
             break;
         }
@@ -103,7 +119,7 @@ void Map::move(int c) {
     break;
 
     case KEY_LEFT:
-        if (map[py][px-1] == '#') {
+        if (map[py][px-1] == '#' || map[py][px-1] == '^') {
             message = "BONK!";
             break;
         }
@@ -116,7 +132,7 @@ void Map::move(int c) {
     break;
 
     case KEY_RIGHT:
-        if (map[py][px+1] == '#') {
+        if (map[py][px+1] == '#' || map[py][px+1] == '^') {
             message = "BONK!";
             break;
         }

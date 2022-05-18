@@ -25,6 +25,7 @@ bool Game::isActionKey(int c) {
         queuedAction = 1;
         return true;
     }
+    return false;
 }
 
 void Game::useAction(int d) {
@@ -41,10 +42,10 @@ void Game::input(int c) {
             useAction(c);
         }
         else {
-            awaitingDirection = false;
-            queuedAction = 0;
             printMessage("Cancelled.");
         }
+        awaitingDirection = false;
+        queuedAction = 0;
         return;
     }
     if (awaitingAction) {
@@ -114,60 +115,50 @@ bool Game::rollBattle() {
 
 void Game::earth(int d) {
 
-    std::string message = "";
+    int x = current_map.getPlayerX();
+    int y = current_map.getPlayerY();
 
-    switch(c) {
+    std::string message = "Used earthcrafting ";
+
+    switch(d) {
     
     case KEY_UP:
 
-        if (map[py-1][px] == '#') {
-            message = "BONK!";
-            break;
-        }
-        if (py != 0) {
-            map[py][px] = underPlayer;
-            py--;
-            underPlayer = map[py][px];
-            map[py][px] = 'o';
+        message += "towards the North.";
+
+        while (!current_map.blockedUp(x, y)) {
+            y--;
+            current_map.placeMountain(x, y);
         }
     break;
 
     case KEY_DOWN:
-        if (map[py+1][px] == '#') {
-            message = "BONK!";
-            break;
-        }
-        if (py != (h-1)) {
-            map[py][px] = underPlayer;
-            py++;
-            underPlayer = map[py][px];
-            map[py][px] = 'o';
+
+        message += "towards the South.";
+
+        while (!current_map.blockedDown(x, y)) {
+            y++;
+            current_map.placeMountain(x, y);
         }
     break;
 
     case KEY_LEFT:
-        if (map[py][px-1] == '#') {
-            message = "BONK!";
-            break;
-        }
-        if (px != 0 ) {
-            map[py][px] = underPlayer;
-            px--;
-            underPlayer = map[py][px];
-            map[py][px] = 'o';
+
+        message += "towards the East.";
+
+        while (!current_map.blockedLeft(x, y)) {
+            x--;
+            current_map.placeMountain(x, y);
         }
     break;
 
     case KEY_RIGHT:
-        if (map[py][px+1] == '#') {
-            message = "BONK!";
-            break;
-        }
-        if (px != (w-1)) {
-            map[py][px] = underPlayer;
-            px++;
-            underPlayer = map[py][px];
-            map[py][px] = 'o';
+
+        message += "towards the West.";
+
+        while (!current_map.blockedRight(x, y)) {
+            x++;
+            current_map.placeMountain(x, y);
         }
     break;
     }

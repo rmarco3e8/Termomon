@@ -39,6 +39,8 @@ public:
 
     bool blockedRight(int x, int y);
 
+    void placeMountain(int x, int y);
+
 private:
 
     std::string mapName;
