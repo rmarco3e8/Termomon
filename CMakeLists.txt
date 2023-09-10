@@ -33,7 +33,7 @@ set(Sources
     src/typeHelper.cpp
 )
 
-add_executable(${This} ${Sources} ${Headers})
+add_library(${This} ${Sources} ${Headers})
 target_link_libraries(${This} ncurses)
 
-#add_subdirectory(gtest)
+add_subdirectory(gtest)
