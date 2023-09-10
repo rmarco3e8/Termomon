@@ -1,4 +1,4 @@
-#include "termomon.h"
+#include "../inc/termomon.h"
 
 #include <math.h>
 

@@ -1,4 +1,4 @@
-#include "typeHelper.h"
+#include "../inc/typeHelper.h"
 
 /*
     TODO:

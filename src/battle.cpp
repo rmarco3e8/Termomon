@@ -1,4 +1,4 @@
-#include "battle.h"
+#include "../inc/battle.h"
 
 
 

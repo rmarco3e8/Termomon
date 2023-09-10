@@ -1,4 +1,4 @@
-#include "game.h"
+#include "../inc/game.h"
 
 Game::Game(std::string mName):
     current_map(mName),

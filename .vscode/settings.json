@@ -55,6 +55,17 @@
       "concepts": "cpp",
       "numbers": "cpp",
       "semaphore": "cpp",
-      "stop_token": "cpp"
+      "stop_token": "cpp",
+      "filesystem": "cpp",
+      "any": "cpp",
+      "condition_variable": "cpp",
+      "cstring": "cpp",
+      "forward_list": "cpp",
+      "list": "cpp",
+      "set": "cpp",
+      "unordered_set": "cpp",
+      "mutex": "cpp",
+      "span": "cpp",
+      "variant": "cpp"
     }
 }

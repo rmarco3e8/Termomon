@@ -1,4 +1,4 @@
-#include "monster.h"
+#include "../inc/monster.h"
 
 Monster::Monster() {
 

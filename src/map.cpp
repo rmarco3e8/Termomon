@@ -1,4 +1,4 @@
-#include "map.h"
+#include "../inc/map.h"
 
 
 Map::Map(std::string mName) {
@@ -14,7 +14,7 @@ Map::Map(std::string mName) {
 void Map::readMapFile() {
 
     std::fstream mapFile;
-    mapFile.open("maps/" + mapName + ".txt");
+    mapFile.open("../maps/" + mapName + ".txt");
 
     std::string height, width;
     mapFile >> height >> width;

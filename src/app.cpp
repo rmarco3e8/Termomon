@@ -1,10 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "termomon.h"
-#include "map.h"
-#include "player.h"
-#include "game.h"
+#include "../inc/termomon.h"
+#include "../inc/map.h"
+#include "../inc/player.h"
+#include "../inc/game.h"
 #include <filesystem>
 namespace fs = std::filesystem;
 
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 
     std::cout << "Enter a map from the following list:" << '\n' << '\n';
 
-    fs::path path = fs::current_path() += "/maps";
+    fs::path path = fs::current_path().parent_path() += "/maps";
     
     for (const auto & entry: fs::directory_iterator(path)) {
         std::cout << entry.path().stem().string() << '\n';
